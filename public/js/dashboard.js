@@ -37,11 +37,23 @@ const onSubmit = (evt) => {
   let location = $("#location").value
 
   if(postalRegEx.test(location)){
+    $(`#setting_location`).textContent = location
+    $(`#location_error`).textContent = ''
+
 
   }else{
-    
+    $(`#location_error`).textContent = 'Postal code should be formated L#L #L#'
   }
   //TODO:: Display an error if not valid
+
+  let tempValue = $("#temperature").value
+   
+  if(tempValue>4&&tempValue<31){
+    $(`#setting_temperature`).textContent = tempValue
+    $(`#temperature_error`).textContent = ''
+  }else{
+    $(`#temperature_error`).textContent = 'error invalid number'
+  }
 
   //TODO:: Validate the temperature by checking the range and if it's a number
   //TODO:: Display an error if not valid
